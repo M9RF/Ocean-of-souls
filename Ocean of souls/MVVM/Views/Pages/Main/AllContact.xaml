@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.AllContact" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+                <Border HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="70"
+                        Height="50">
+                    <Viewbox>
+                        <Button Background="Transparent"
+                                BorderBrush="Transparent"
+                                Command="{DynamicResource AuthorizationCommand}"
+                                CommandParameter="Paramount">
+
+                            <materialDesign:PackIcon Kind="ArrowBack"
+                                                     Foreground="{Binding WindowForeground}"
+                                                     HorizontalAlignment="Left"/>
+                        </Button>
+                    </Viewbox>
+                </Border>
+
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <TextBox Height="47"
+                             Width="308"
+                             Text="{Binding Pattern, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="{Binding BorderBrushColor}"
+                             materialDesign:HintAssist.Hint="Имя пользователя"
+                             Foreground="{Binding Chapters}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ListView Grid.Row="1"
+                      x:Name="ListViewContact"
+                      ItemsSource="{Binding Contacts}"
+                      SelectedItem="{Binding SelectedContact}"
+                      Background="Transparent"
+                      ItemContainerStyle="{StaticResource AllContact}"                    
+                      BorderThickness="0"/>
+        </Grid>
+    </Grid>
+</UserControl>

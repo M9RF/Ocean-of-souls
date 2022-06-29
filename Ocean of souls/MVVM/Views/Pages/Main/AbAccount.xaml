@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.AbAccount" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="{Binding InformationBackgroundColor}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"  
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"
+                                             Margin="10, 0, 0, 0"/>
+
+                    <Button BorderThickness="0"
+                            Background="Transparent"
+                            Height="50"
+                            Width="170"
+                            Command="{Binding SwitchingPageCommand}"
+                            CommandParameter="AboutAccountProfile">
+                        <TextBlock Text="Профиль"
+                                   FontSize="15"
+                                   Foreground="{Binding WindowForeground}"
+                                   Background="Transparent"
+                                   TextAlignment="Left"
+                                   Style="{x:Null}" Width="144"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Color"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"  
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"
+                                             Margin="10, 0, 0, 0"/>
+
+                    <Button BorderThickness="0"
+                            Background="Transparent"
+                            Height="50"
+                            Width="170"
+                            Command="{Binding SwitchingPageCommand}"
+                            CommandParameter="AboutAccountTheme">
+                        <TextBlock Text="Цветовая тема"
+                                   FontSize="15"
+                                   Foreground="{Binding WindowForeground}"
+                                   Background="Transparent"
+                                   TextAlignment="Left"
+                                   Style="{x:Null}" Width="144"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="DeleteEmptyOutline"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"  
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"
+                                             Margin="10, 0, 0, 0"/>
+
+                    <Button BorderThickness="0"
+                            Background="Transparent"
+                            Height="50"
+                            Width="170"
+                            Command="{Binding SwitchingPageCommand}"
+                            CommandParameter="AboutAccountDeleteProfile">
+                        <TextBlock Text="Удаление профиля"
+                                   FontSize="15"
+                                   Foreground="{Binding WindowForeground}"
+                                   Background="Transparent"
+                                   TextAlignment="Left"
+                                   Style="{x:Null}" Width="144"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ExitRun"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"  
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"
+                                             Margin="10, 0, 0, 0"/>
+
+                    <Button BorderThickness="0"
+                            Background="Transparent"
+                            Height="50"
+                            Width="170"
+                            Command="{DynamicResource AuthorizationCommand}"
+                            CommandParameter="Paramount">
+                        <TextBlock Text="Выход"
+                                   FontSize="15"
+                                   Foreground="{Binding WindowForeground}"
+                                   Background="Transparent"
+                                   TextAlignment="Left"
+                                   Style="{x:Null}" Width="144"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <ContentPresenter Content="{Binding AboutAccountCurrent}"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,231 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.Paramount" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="{Binding ContactBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="OOS"
+                       Foreground="{Binding WindowForeground}"
+                       VerticalAlignment="Center"                  
+                       Margin="10, 0, 0, 0"
+                       FontSize="16"/>
+
+                <Button Background="Transparent"
+                        Margin="0,0,0,0"
+                        BorderThickness="0"
+                        Command="{Binding AllContactShowCommand}">
+
+                    <materialDesign:PackIcon Kind="AccountMultipleAdd"
+                                             Width="20" Height="20"
+                                             VerticalAlignment="Center"
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Margin="-10,0,0,0"
+                        Command="{Binding AddDialogCommand}">
+
+                    <materialDesign:PackIcon Kind="ChatPlus"
+                                             Width="20" Height="20"
+                                             VerticalAlignment="Center"
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Margin="-10,0,0,0"
+                        Command="{Binding CreateDialogCommand}">
+                    <materialDesign:PackIcon Kind="ChatAdd"
+                                             Width="20" Height="20"
+                                             VerticalAlignment="Center"
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Margin="-10,0,0,0"
+                        Command="{Binding UpdateDialogCommand}">
+                    <materialDesign:PackIcon Kind="Update"
+                                             Width="20" Height="20"
+                                             VerticalAlignment="Center"
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+            </StackPanel>
+
+            <ListView Grid.Row="1"
+                      x:Name="ListViewContact"
+                      Background="Transparent"
+                      ItemsSource="{Binding Dialogs}"
+                      SelectedItem="{Binding SelectedDialog}"
+                      ItemContainerStyle="{StaticResource ContactCard}"
+                      BorderThickness="0"/>
+
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        Background="{Binding InformationBackgroundColor}">
+                <Button Height="50"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Margin="-5, 0, 0, 0"
+                        Command="{DynamicResource AuthorizationCommand}"
+                        CommandParameter="AbAccount">
+                    <Ellipse Width="30" Height="30"
+                             HorizontalAlignment="Left">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding UserProfile[0].PathImage}"
+                                        Stretch="Fill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+
+                <StackPanel VerticalAlignment="Center"
+                            Margin="-10, 0, 0, 0"
+                            Width="80">
+                    <Label Content="{Binding UserProfile[0].Name}"
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="SemiBold"
+                           Margin="0, -5, 0, -5"/>
+
+                    <Label Content="{Binding UserProfile[0].Stat}"
+                           Foreground="{Binding WindowForeground}"
+                           FontSize="12"
+                           Margin="0, -5, 0, -5"/>
+                </StackPanel>
+
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Margin="0, 0, 0, 0"
+                        Command="{DynamicResource AuthorizationCommand}"
+                        CommandParameter="AbAccount">
+
+                    <materialDesign:PackIcon Kind="Account"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"  
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Margin="-5,0,0,0"
+                        Command="{DynamicResource AuthorizationCommand}"
+                        CommandParameter="AbSettings">
+                    <materialDesign:PackIcon Kind="Settings"
+                                             Width="20"
+                                             Height="20"
+                                             VerticalAlignment="Center"
+                                             RenderOptions.BitmapScalingMode="Fant"
+                                             Foreground="{Binding WindowForeground}"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderBrush="{Binding ContactBackgroundColor}"
+                    BorderThickness="0, 0, 0, 2">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Margin="25,0,0,0">
+                        <Button Height="50"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Margin="-15, 0, 0, 0"
+                                Command="{DynamicResource AuthorizationCommand}"
+                                CommandParameter="InformationUser">
+                            <Ellipse Width="30" Height="30"
+                             HorizontalAlignment="Left">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding SelectedDialog.PathImage}"
+                                        Stretch="Fill"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Button>
+                    </Grid>
+
+                    <Label Content="{Binding Path=SelectedDialog.Name}"
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="Bold"
+                           Margin="5, 0, 5, 0"
+                           VerticalAlignment="Center"
+                           Style="{x:Null}" 
+                           Width="100" Height="25"/>
+
+                    <Label Content="{Binding Path=SelectedDialog.Code}"
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="Bold"
+                           Margin="5, 0, 5, 0"
+                           VerticalAlignment="Center"
+                           Style="{x:Null}" 
+                           Width="100" Height="25"/>
+                </StackPanel>
+            </Border>
+
+            <ListView Grid.Row="1"
+                      ItemsSource="{Binding Path=SelectedDialog.Messages}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      ItemContainerStyle="{StaticResource ChatCard}"
+                      Margin="8, 0, 0, 0"/>
+
+            <Grid Grid.Row="2" Margin="2,0,-2,0"
+                  Name="TextBoxGrid"
+                  Visibility="{Binding }">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Row="1" Grid.ColumnSpan="2"
+                         Height="50"
+                         Text="Сообщение @Имя"
+                         Style="{StaticResource MessageBox}"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            Margin="0, 0, 16, 0">
+
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Command="{Binding SendMessageCommand}"
+                            CommandParameter="{Binding}">
+                        <materialDesign:PackIcon Kind="Send"
+                                                 Width="20"
+                                                 Height="20"
+                                                 RenderOptions.BitmapScalingMode="Fant"
+                                                 Foreground="{Binding WindowForeground}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

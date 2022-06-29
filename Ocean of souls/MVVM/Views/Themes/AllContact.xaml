@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Style TargetType="ListViewItem" x:Key="AllContact">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{Binding WindowTitleBackgroundColor, Source={x:Static vm:MainViewModel.Instance}}"/>
+            </Trigger>
+        </Style.Triggers>
+
+        <Setter Property="Background" Value="{Binding InformationBackgroundColor, Source={x:Static vm:MainViewModel.Instance}}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <StackPanel Orientation="Vertical">
+                        <Border Background="{TemplateBinding Background}"
+                                Height="50"
+                                CornerRadius="4"
+                                Margin="8, 2, 8, 2">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            Margin="10, 0, 0, 0">
+                                    <Ellipse Width="30" Height="30"
+                                             Margin="10 , 10, 0, 0">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding PathImage}"
+                                                        Stretch="Fill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <StackPanel>
+                                        <Label Content="{Binding Name}"
+                                               Margin="10 , 10, 0, 0"
+                                               Foreground="{Binding Chapters, Source={x:Static vm:MainViewModel.Instance}}"/>
+                                    </StackPanel>
+
+                                    <StackPanel VerticalAlignment="Center">
+                                        <Button Background="Transparent"
+                                                BorderThickness="0"
+                                                Command="{Binding AddContactCommand, Source={x:Static vm:MainViewModel.Instance}}"
+                                                CommandParameter="{Binding Id}">
+                                            <materialDesign:PackIcon Kind="Add"
+                                                                     Width="20" Height="20"
+                                                                     VerticalAlignment="Stretch"
+                                                                     HorizontalAlignment="Right"
+                                                                     RenderOptions.BitmapScalingMode="Fant"
+                                                                     Foreground="{Binding WindowForeground}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

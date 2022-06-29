@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Authorization.Welcome" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid Background="#FFED93F7">
+                <Viewbox>
+                    <Rectangle x:Name="rectangle" Height="120"
+                               Width="180"
+                               HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding PathToLogotype}" 
+                                        Stretch="Uniform"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Label Content="Ocean of souls Desktop"
+                   Foreground="{Binding Chapters}" FontSize="32"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Label Content="Добро пожаловать на официальную"
+                   Foreground="{Binding WindowForeground}" FontSize="16"             
+                   HorizontalAlignment="Center" Margin="0,0,0,82"/>
+
+            <Label Content="версию Ocean of Souls."
+                   Foreground="{Binding WindowForeground}" FontSize="16"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   Margin="0, 20, 0, 0"/>
+
+            <Button Command="{DynamicResource AuthorizationCommand}"
+                    CommandParameter="SignUp"
+                    Content="НАЧАТЬ ОБЩЕНИЕ" 
+                    Background="#FFED93F7"
+                    Foreground="{Binding Chapters}" FontSize="14" FontWeight="Bold"
+                    Height="45" Width="275" VerticalAlignment="Bottom"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.AboutSettings.ScreenSettingsSupport" mc:Ignorable="d"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="50"
+                        Margin="0, 10, 0, 0">
+                <StackPanel>
+                    <Label Content="Если есть вопрос, то пиши, но знай одно..."
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="Bold"
+                           Margin="10, 0, 5, 0"
+                           VerticalAlignment="Center"
+                           Width="667" Height="26"/>
+
+                    <Label Content="Возможно мы ответим."
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="Bold"
+                           Margin="10, 0, 5, 0"
+                           VerticalAlignment="Center"
+                           Width="667" Height="26"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Height="50">
+                <TextBox Height="47"
+                         Width="369"
+                         Text="{Binding Technical}"
+                         Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                         Margin="15, 0, 5, 0"
+                         VerticalAlignment="Top"
+                         BorderBrush="{Binding BorderBrushColor}"
+                         materialDesign:HintAssist.Hint="Донос"
+                         Foreground="{Binding Chapters}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Height="50">
+                <Button Command="{Binding TechnicalAcomplaintCommand}"
+                        Content="Пожаловаться или спросить"
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Background="#FFED93F7"
+                        Foreground="{Binding Chapters}" 
+                        Height="30" Width="250"
+                        Margin="15, 0, 5, 0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

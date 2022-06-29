@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.AboutSettings.ScreenSettingsInformation" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="50">
+                <Label Content="Проект был разработан Smolikov Ivan."
+                       Foreground="{Binding WindowForeground}"
+                       FontWeight="Bold"
+                       Margin="10, 0, 5, 0"
+                       VerticalAlignment="Center"
+                       Width="550" Height="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Height="50">
+                <Label Content="Сотрудничество: official.morf@mail.ru"
+                       Foreground="{Binding WindowForeground}"
+                       FontWeight="Bold"
+                       Margin="10, 0, 5, 0"
+                       VerticalAlignment="Center"
+                       Width="550" Height="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Height="50">
+                <Label Content="OOS - Ocean of souls (Океан душ)"
+                       Foreground="{Binding WindowForeground}"
+                       FontWeight="Bold"
+                       Margin="10, 0, 5, 0"
+                       VerticalAlignment="Center"
+                       Width="550" Height="26"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

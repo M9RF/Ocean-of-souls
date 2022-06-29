@@ -1,0 +1,236 @@
+﻿<UserControl x:Class="Ocean_of_souls.MVVM.Views.Pages.Main.AboutAccount.AboutAccountProfile" mc:Ignorable="d" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Ocean_of_souls.MVVM.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:MainViewModel.Instance}">
+    <Grid>
+        <Grid>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Height="50">
+                    <Label Content="Используй только то, что действительно работает. И бери это отовсюду где можешь найти."
+                           Foreground="{Binding WindowForeground}"
+                           FontWeight="Bold"
+                           Margin="10, 0, 5, 0"
+                           VerticalAlignment="Center"
+                           Width="550" Height="26"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Ваше фото. Задумайтесь о его величие:"                     
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"        
+                                   Margin="10, 0, 5, 0"        
+                                   VerticalAlignment="Center"
+                                   Width="245" Height="26"/>
+
+                            <Rectangle Width="30" Height="30"
+                                       HorizontalAlignment="Left">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding UserProfile[0].PathImage}"
+                                                Stretch="Fill"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <Rectangle Width="35" Height="35"
+                                       Margin="10, 0, 0, 0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding UserProfile[0].PathImage}"
+                                                Stretch="Fill"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <Rectangle Width="45" Height="45"
+                                       Margin="10, 0, 0, 0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding UserProfile[0].PathImage}"
+                                                Stretch="Fill"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <Button Command="{Binding ChangePhotoCommand}"
+                                    Content="Изменить" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 10, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="115"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="70">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Интересно бы придумать имя:"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="193" Height="26"/>
+
+
+                            <Label Content="{Binding UserProfile[0].Name}"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="-10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="115" Height="25"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Height="40" Width="250"
+                                     Text="{Binding NewName}"
+                                     Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                     Margin="20, 0, 0, 0"
+                                     BorderBrush="{Binding WindowForeground}"
+                                     materialDesign:HintAssist.Hint="Новое имя"
+                                     Foreground="{Binding Chapters}"/>
+                            
+                            <Button Command="{Binding RenameNameCommand}"
+                                    Content="Изменить" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 5, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="115"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="70">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Интересно бы придумать статус:"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="206" Height="26"/>
+
+
+                            <Label Content="{Binding UserProfile[0].Stat}"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="-10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="115" Height="25"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Height="40" Width="250"
+                                     Text="{Binding NewStat}"
+                                     Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                     Margin="20, 0, 0, 0"
+                                     BorderBrush="{Binding WindowForeground}"
+                                     materialDesign:HintAssist.Hint="Новый статус"
+                                     Foreground="{Binding Chapters}"/>
+
+                            <Button Command="{Binding RenameStatCommand}"
+                                    Content="Изменить" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 5, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="115"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal"
+                            Height="70">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Любовь - это одинаковый пароль у двоих:"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="265" Height="26"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <PasswordBox Height="40" Width="250"
+                                         Style="{DynamicResource MaterialDesignFloatingHintPasswordBox}"
+                                         Margin="20, 0, 0, 0"
+                                         BorderBrush="{Binding WindowForeground}"
+                                         materialDesign:HintAssist.Hint="Новый пароль"
+                                         Foreground="{Binding Chapters}"
+                                         Name="NewPasswordBox"/>
+
+                            <Button Command="{Binding RenamePasswordCommand}"
+                                    CommandParameter="{Binding ElementName=NewPasswordBox}"
+                                    Content="Изменить" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 5, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="115"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Height="70">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Парадокс, но почта нужна везде:"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="10, 0, 5, 0"
+                                   VerticalAlignment="Center"
+                                   Width="212" Height="26"/>
+
+                            <Label Content="{Binding UserProfile[0].Email}"
+                                   Foreground="{Binding WindowForeground}"
+                                   FontWeight="Bold"
+                                   Margin="-15, 0, 0, 0"
+                                   VerticalAlignment="Center"
+                                   Width="212" Height="26"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Height="40" Width="250"
+                                     Text="{Binding NewEmail}"
+                                     Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                                     Margin="20, 0, 0, 0"
+                                     BorderBrush="{Binding WindowForeground}"
+                                     materialDesign:HintAssist.Hint="Новая почта"
+                                     Foreground="{Binding Chapters}"/>
+
+                            <Button Command="{Binding RenameEmailCommand}"
+                                    Content="Изменить" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 5, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="115"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button Command="{Binding ExitFromAccountCommand}"
+                                    Content="Выйти из аккаунта" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15, 15, 0, 0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Background="#FFED93F7"
+                                    Foreground="{Binding Chapters}" 
+                                    Height="25" Width="155"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

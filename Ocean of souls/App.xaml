@@ -1,0 +1,22 @@
+﻿<Application x:Class="Ocean_of_souls.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MVVM/Views/Windows/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="./MVVM/Views/Themes/ContactCard.xaml"/>
+                <ResourceDictionary Source="./MVVM/Views/Themes/ChatCard.xaml"/>
+                <ResourceDictionary Source="./MVVM/Views/Themes/MessageBox.xaml"/>
+                <ResourceDictionary Source="./MVVM/Views/Themes/AllContact.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+
+            <RoutedCommand x:Key="AuthorizationCommand"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
